@@ -28,13 +28,9 @@ module.exports = defineConfig({
     ],
     devServer: {
       proxy: {
-        '/rss-proxy': {
-          target: 'https://news.google.com',
-          changeOrigin: true,
-          pathRewrite: { '^/rss-proxy': '' },
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-          }
+        '/api': {
+          target: 'http://localhost:3000',
+          changeOrigin: true
         },
       },
     },

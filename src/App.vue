@@ -19,13 +19,8 @@ export default {
   methods: {
     async fetchNews() {
 
-      const fetchUrl = `/api/rss?url=${encodeURIComponent('https://news.google.com/rss')}`;
-      fetch(fetchUrl)
-        .then(response => response.text())
-        .then(xml => console.log(xml));
-
       try {
-        const response = await fetch(fetchUrl);
+        const response = await fetch('/api/rss');
         const xml = await response.text();
         console.log(xml);
         const parser = new Parser();
